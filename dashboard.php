@@ -1,0 +1,122 @@
+<?php
+session_start();
+if(!isset($_SESSION["user"])){
+  header("Location: login.php");
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #2B2E4A;
+            color:#fff;
+            overflow-x:hidden;
+        }
+        .container-fluid h1 {
+            margin-left: 250px; 
+            padding: 20px;
+            color:#fff;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            padding-top: 20px;
+            margin-top:60px;
+            background-color: #903749;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #dcdcdc;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #53354A;
+            padding: 10px 20px;    
+        }
+        .text h5 {
+            position:relative;
+            color:#fff;
+            font-family:Libre Baskerville;
+            right:530px;
+            top:5px;
+        }
+        .logo img {
+            max-width: 40px;
+            height: auto;
+            position:relative;
+        }
+        .login a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 16px;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .login a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="dashboard.php">
+                <img src="admin/img/smkn 8 malang.png" alt="Logo">
+            </a>
+        </div>
+        <div class="text">
+            <h5>JURNAL PKL
+                SMKN 8 MALANG
+            </h5>    
+        </div>
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>
+                <?php echo $_SESSION["user"];?>
+                </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </nav>
+    <div class="sidebar">
+        <a href="profile.php"><i class="fa-sharp fa-solid fa-user"></i>  Profile</a>
+        <a href="absensi.php"><i class="fa-sharp fa-solid fa-qrcode"></i>  Absensi</a>
+        <a href="laporan.php"><i class="fa-sharp fa-solid fa-file-lines"></i> Laporan</a>
+        <a href="tanggapan.php"><i class="fa-sharp fa-solid fa-comment"></i>  Tanggapan</a>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Selamat datang di Dashboard</h1>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
