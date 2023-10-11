@@ -1,7 +1,7 @@
 <?php
 session_start();
 $conn = new mysqli("localhost", "root", " ", "db_jurnal");
-
+if ISSET($_POST['user'])) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 
@@ -25,6 +25,7 @@ if ($result->num_rows == 1) {
     }
 } else {
     echo "Pengguna tidak ditemukan!";
+}
 }
 ?>
 
